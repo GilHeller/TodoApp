@@ -20,7 +20,7 @@ body {
   --dark-theme-very-dark-grayish-blue-1: hsl(233, 14%, 35%);
   --dark-theme-very-dark-grayish-blue-2: hsl(237, 14%, 26%);
 
-  --todo-containers-width: 30vw;
+  --mobile-width: 375px;
 
   font-family: "Josefin Sans";
   font-size: 18px;
@@ -34,30 +34,65 @@ body {
   /* THEME */
   background-color: var(--light-theme-very-light-grayish-blue);
 }
+@media screen and (min-width: 375px) {
+  body{
+    --todo-containers-width: 35vw
+  }
+
+  .backgroung-image{
+    background: url("./images/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body {
+    --todo-containers-width: 75vw;
+  }
+
+  .backgroung-image{
+    background: url("./images/bg-mobile-light.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
 
 h1,
 h2,
 h3 {
   margin: 0;
 }
-hr{
+hr {
   border: 1px solid var(--light-theme-grayish-blue);
   margin: 0.5rem 0.5rem;
 }
-hr:nth-last-of-type(1){
+.todo-line-hr:nth-last-of-type(1) {
   border: none;
 }
 
 /* --- TodoList --- */
 .todo-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 50vh;
   padding: 0.5rem;
   width: var(--todo-containers-width);
   border-radius: 1rem;
-  overflow-y: auto;
-  scrollbar-width: none;
+  
   /* THEME */
   background-color: var(--light-theme-very-light-gray);
+  position: relative;
+}
+.todo-list-content {
+  height: 50vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.todo-list-info-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 /* AddTask */
@@ -65,6 +100,7 @@ hr:nth-last-of-type(1){
   width: var(--todo-containers-width);
   height: 3vh;
   margin: 1rem;
+  padding: 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -80,10 +116,11 @@ hr:nth-last-of-type(1){
   background-color: transparent;
   border: transparent;
   outline: none;
+  font-family: "Josefin Sans";
 }
 
 .add-task-container > button {
-  margin-right: 0.5rem ;
+  margin-right: 0.5rem;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -125,7 +162,7 @@ hr:nth-last-of-type(1){
   justify-content: space-between;
   margin: 0 1rem;
 }
-.todo-line-delete{
+.todo-line-delete {
   cursor: pointer;
 }
 

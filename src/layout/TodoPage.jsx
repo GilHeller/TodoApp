@@ -13,11 +13,12 @@ const TodoPage = (props) => {
 
   return (
     <>
-      <img
+      {/* <img
         className="backgroung-image"
         alt="backgroung"
         src="bg-desktop-light.jpg"
-      />
+      /> */}
+      <div className="backgroung-image"></div>
       <div className="todo-page-container">
         <h1>To Do
 

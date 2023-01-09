@@ -49,7 +49,7 @@ const ToDoLine = (props) => {
           />
         )}
       </div>
-      <hr />
+      <hr className="todo-line-hr"/>
     </>
   );
 };
