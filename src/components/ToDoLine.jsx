@@ -29,11 +29,13 @@ const ToDoLine = (props) => {
     <>
       <div
         className="todo-line-container"
-        onClick={(e) => handleCheck(e, props._id)}
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="todo-line-content-container">
+        <div
+          className="todo-line-content-container"
+          onClick={(e) => handleCheck(e, props._id)}
+        >
           <div className="todo-line-check">
             {props?.isComplete && <CheckSvg />}
           </div>
@@ -49,7 +51,7 @@ const ToDoLine = (props) => {
           />
         )}
       </div>
-      <hr className="todo-line-hr"/>
+      <hr className="todo-line-hr" />
     </>
   );
 };
