@@ -1,17 +1,11 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import TodoPage from './layout/TodoPage';
 import './App.css';
-import TodoList from './components/TodoList';
 
 function App() {
-  const [todos, setTodos] = useState([{
-    content: 'content',
-    isComplete: false,
-  }]);
-  
   return (
     <>
-      <TodoList todos={todos} setTodos={setTodos}/>
+      <TodoPage/>
     </>
   );
 }

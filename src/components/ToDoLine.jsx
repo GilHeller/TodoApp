@@ -1,18 +1,57 @@
-import React from "react";
-// import CheckSvg from "../../images/icon-check.svg";
+import React, { useState } from "react";
 import { ReactComponent as CheckSvg } from "../images/icon-check.svg";
+import { ReactComponent as CrossSvg } from "../images/icon-cross.svg";
 
 const ToDoLine = (props) => {
-    console.log(props);
-    
-    return (
-        <div className="todo-line-container">
-            <div className="todo-line-check">
-                {props?.isComplete && <CheckSvg/>}
-            </div>
-            <p>{props.content}</p>
+  const [showDelete, setShowDelete] = useState(false);
+  const handleMouseOver = (_) => {
+    setShowDelete(true);
+  };
+  const handleMouseLeave = (_) => {
+    setShowDelete(false);
+  };
+
+  const handleCheck = (e, _id) => {
+    e.stopPropagation();
+    const stateCopy = [...props.todos];
+    const todoIndex = stateCopy.findIndex((todo) => todo._id === _id);
+    stateCopy[todoIndex].isComplete = !stateCopy[todoIndex].isComplete;
+    props.setTodos(stateCopy);
+  };
+  const handleDelete = (e, _id) => {
+    e.stopPropagation();
+    const newState = [...props.todos];
+    newState.filter((todo) => todo._id !== _id);
+    props.setTodos(newState.filter((todo) => todo._id !== _id));
+  };
+
+  return (
+    <>
+      <div
+        className="todo-line-container"
+        onClick={(e) => handleCheck(e, props._id)}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="todo-line-content-container">
+          <div className="todo-line-check">
+            {props?.isComplete && <CheckSvg />}
+          </div>
+          <p className="todo-line-content" isdone={`${props?.isComplete}`}>
+            {props.content}
+          </p>
         </div>
-    )
-}
+
+        {showDelete && (
+          <CrossSvg
+            className="todo-line-delete"
+            onClick={(e) => handleDelete(e, props._id)}
+          />
+        )}
+      </div>
+      <hr />
+    </>
+  );
+};
 
 export default ToDoLine;
