@@ -31,6 +31,7 @@ const ToDoLine = (props) => {
         className="todo-line-container"
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
+        isdone={`${props?.isComplete}`}
       >
         <div
           className="todo-line-content-container"
@@ -39,11 +40,8 @@ const ToDoLine = (props) => {
           <div className="todo-line-check">
             {props?.isComplete && <CheckSvg />}
           </div>
-          <p className="todo-line-content" isdone={`${props?.isComplete}`}>
-            {props.content}
-          </p>
+          <p className="todo-line-content">{props.content}</p>
         </div>
-
         {showDelete && (
           <CrossSvg
             className="todo-line-delete"

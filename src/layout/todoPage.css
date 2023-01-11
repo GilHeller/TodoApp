@@ -1,0 +1,126 @@
+/* --- TodoList --- */
+.todo-list-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50vh;
+  padding: 0.5rem;
+  width: var(--todo-containers-width);
+  border-radius: 1rem;
+  background-color: var(--secondary-background-color);
+  position: relative;
+}
+.todo-list-content {
+  height: 50vh;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.todo-list-info-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* AddTask */
+.add-task-container {
+  width: var(--todo-containers-width);
+  height: 3vh;
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem;
+  background-color: var(--secondary-background-color);
+}
+.add-task-container > input {
+  width: 80%;
+  margin: 0 5%;
+  height: 100%;
+  background-color: transparent;
+  border: transparent;
+  outline: none;
+  font-family: "Josefin Sans";
+  color: var(--primary-color);
+}
+
+.add-task-container > button {
+  margin-right: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: large;
+}
+/* --- TodoLine --- */
+.todo-line-content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.todo-line-check {
+  border: 2px solid var(--tertiany-color);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.todo-line-content {
+  margin: 0.5rem;
+  color: var(--primary-color);
+  overflow: hidden;
+  max-width: calc(var(--todo-containers-width) - 7rem);
+  text-overflow: ellipsis;
+}
+
+[isdone="true"] * .todo-line-content {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+}
+[isdone="true"] * .todo-line-check {
+  background: linear-gradient(
+    var(--check-backgoung-gradient-start),
+    var(--check-backgoung-gradient-end)
+  );
+}
+.todo-line-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+.todo-line-delete {
+  cursor: pointer;
+  z-index: 1;
+  fill: var(--primary-color) !important;
+  border-color: aliceblue;
+}
+
+/* TodoPage */
+.todo-page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.todo-page-container-header {
+    display: flex;
+    width: var(--todo-containers-width);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.backgroung-image {
+  width: 100vw;
+  height: 33vh;
+  position: absolute;
+  z-index: -1;
+}
