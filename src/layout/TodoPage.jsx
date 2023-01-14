@@ -33,6 +33,19 @@ const TodoPage = (props) => {
       ]);
   };
 
+  const onCheckTask = (_id) => {
+    const newState = [...todos];
+    const todoIndex = newState.findIndex((todo) => todo._id === _id);
+    newState[todoIndex].isComplete = !newState[todoIndex].isComplete;
+    setTodos(newState);
+  };
+
+  const onDeleteTask = (_id) => {
+    const newState = [...todos];
+    newState.filter((todo) => todo._id !== _id);
+    setTodos(newState.filter((todo) => todo._id !== _id));
+  };
+
   return (
     <>
       <div className="backgroung-image"></div>
@@ -46,7 +59,12 @@ const TodoPage = (props) => {
           />
         </div>
         <AddTask onAddTask={onAddTask} />
-        <TodoList todos={todos} setTodos={setTodos} />
+        <TodoList
+          todos={todos}
+          setTodos={setTodos}
+          onCheckTask={onCheckTask}
+          onDeleteTask={onDeleteTask}
+        />
       </div>
     </>
   );
