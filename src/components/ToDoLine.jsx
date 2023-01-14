@@ -1,16 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { ReactComponent as CheckSvg } from "../images/icon-check.svg";
 import { ReactComponent as CrossSvg } from "../images/icon-cross.svg";
 
 const ToDoLine = (props) => {
-  const [showDelete, setShowDelete] = useState(false);
-  const handleMouseOver = (_) => {
-    setShowDelete(true);
-  };
-  const handleMouseLeave = (_) => {
-    setShowDelete(false);
-  };
-
   const handleCheck = (e, _id) => {
     e.stopPropagation();
     const stateCopy = [...props.todos];
@@ -18,8 +10,7 @@ const ToDoLine = (props) => {
     stateCopy[todoIndex].isComplete = !stateCopy[todoIndex].isComplete;
     props.setTodos(stateCopy);
   };
-  const handleDelete = (e, _id) => {
-    e.stopPropagation();
+  const handleDelete = (_, _id) => {
     const newState = [...props.todos];
     newState.filter((todo) => todo._id !== _id);
     props.setTodos(newState.filter((todo) => todo._id !== _id));
@@ -29,8 +20,6 @@ const ToDoLine = (props) => {
     <>
       <div
         className="todo-line-container"
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
         isdone={`${props?.isComplete}`}
       >
         <div
@@ -42,12 +31,10 @@ const ToDoLine = (props) => {
           </div>
           <p className="todo-line-content">{props.content}</p>
         </div>
-        {showDelete && (
           <CrossSvg
             className="todo-line-delete"
             onClick={(e) => handleDelete(e, props._id)}
           />
-        )}
       </div>
       <hr className="todo-line-hr" />
     </>

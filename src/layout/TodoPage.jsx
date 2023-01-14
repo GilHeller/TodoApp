@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import AddTask from "../components/AddTask";
 import TodoList from "../components/TodoList";
-import { ReactComponent as MoonIcon } from "../images/icon-moon.svg";
-import { ReactComponent as SunIcon } from "../images/icon-sun.svg";
 import "./todoPage.css";
+import ThemeIcon from "../components/ThemeIcon";
 
 const TodoPage = (props) => {
   const [todos, setTodos] = useState([
@@ -22,19 +21,31 @@ const TodoPage = (props) => {
     props.setTheme(changeToTheme[props.theme]);
   };
 
+  const onAddTask = (taskContent) => {
+    taskContent &&
+      setTodos([
+        ...todos,
+        {
+          content: taskContent,
+          isComplete: false,
+          _id: Date.now(),
+        },
+      ]);
+  };
+
   return (
     <>
       <div className="backgroung-image"></div>
       <div className="todo-page-container">
         <div className="todo-page-container-header">
           <h1>To Do</h1>
-          {props.theme === "dark" ? (
-            <SunIcon className="theme" onClick={handleThemeChange} />
-          ) : (
-            <MoonIcon className="theme" onClick={handleThemeChange} />
-          )}
+          <ThemeIcon
+            className="theme"
+            theme={props.theme}
+            onClick={handleThemeChange}
+          />
         </div>
-        <AddTask todos={todos} setTodos={setTodos} />
+        <AddTask onAddTask={onAddTask} />
         <TodoList todos={todos} setTodos={setTodos} />
       </div>
     </>

@@ -95,8 +95,12 @@
   justify-content: space-between;
   margin: 0 1rem;
 }
+.todo-line-container:hover > .todo-line-delete {
+    visibility: visible;
+}
 .todo-line-delete {
   cursor: pointer;
+  visibility: hidden;
   z-index: 1;
   fill: var(--primary-color) !important;
   border-color: aliceblue;

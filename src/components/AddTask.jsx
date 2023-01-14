@@ -5,17 +5,6 @@ const Input = (props) => {
   const handleContentChange = (e) => {
     setTaskContent(e.target.value);
   };
-  const handleAddTask = () => {
-    taskContent &&
-      props.setTodos([
-        ...props.todos,
-        {
-          content: taskContent,
-          isComplete: false,
-          _id: Date.now(),
-        },
-      ]);
-  };
 
   return (
     <div className="add-task-container">
@@ -26,7 +15,7 @@ const Input = (props) => {
         onChange={handleContentChange}
         value={taskContent}
       />
-      <button onClick={handleAddTask}>+</button>
+      <button onClick={() => props.onAddTask(taskContent)}>+</button>
     </div>
   );
 };
