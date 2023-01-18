@@ -13,6 +13,8 @@ const TodoPage = (props) => {
     },
   ]);
 
+  const [filteredList, setFilteredList] = useState();
+
   const handleThemeChange = (e) => {
     const changeToTheme = {
       dark: "light",

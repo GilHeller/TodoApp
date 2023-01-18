@@ -128,3 +128,10 @@
   position: absolute;
   z-index: -1;
 }
+
+/* Footer */
+.todo-footer-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}

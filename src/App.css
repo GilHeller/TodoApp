@@ -90,6 +90,9 @@ hr {
   border: 1px solid var(--tertiany-color);
   margin: 0.5rem 0.5rem;
 }
+p{
+  color: var(--primary-color);
+}
 .todo-line-hr:nth-last-of-type(1) {
   border: none;
 }
@@ -97,3 +100,4 @@ hr {
 .theme {
   cursor: pointer;
 }
+
