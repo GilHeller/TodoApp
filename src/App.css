@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+.app-content[theme="light"] {
+  --background-color: hsl(236, 33%, 92%);
+  --secondary-background-color: hsl(0, 0%, 98%);
+  --header-color: hsl(240, 3%, 93%);
+  --primary-color: hsl(235, 19%, 35%);
+  --secondary-color: hsl(236, 9%, 61%);
+  --tertiany-color: hsl(233, 11%, 84%);
+  --active-color: hsl(213.7, 94.9%, 38.2%);
+}
+
+.app-content[theme="dark"] {
+  --background-color: hsl(235, 24%, 19%);
+  --secondary-background-color: hsl(233, 14%, 35%);
+  --header-color: hsl(240, 3%, 93%);
+  --primary-color: hsl(236, 33%, 92%);
+  --secondary-color: hsl(234, 39%, 85%);
+  --tertiany-color: hsl(234, 11%, 52%);
+  --active-color: hsl(213.5, 69.4%, 51.4%);
+}
+
+.app-content {
+  background-color: var(--background-color);
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+
+body {
+  --check-backgoung-gradient-start: hsl(192, 100%, 67%);
+  --check-backgoung-gradient-end: hsl(280, 87%, 65%);
+  --mobile-width: 375px;
+
+  font-family: "Josefin Sans";
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  z-index: -999;
+}
+
+@media screen and (min-width: 375px) {
+  body {
+    --todo-containers-width: 35vw;
+  }
+  
+  [theme="light"] > .backgroung-image {
+    background: url("./images/bg-desktop-light.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  [theme="dark"] > .backgroung-image {
+    background: url("./images/bg-desktop-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+
+@media screen and (max-width: 375px) {
+  body {
+    --todo-containers-width: 80vw;
+  }
+
+  [theme="light"] > .backgroung-image {
+    background: url("./images/bg-mobile-light.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  [theme="dark"] > .backgroung-image {
+    background: url("./images/bg-mobile-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--header-color);
+}
+hr {
+  border: 1px solid var(--tertiany-color);
+  margin: 0.5rem 0.5rem;
+}
+p{
+  color: var(--primary-color);
+}
+button {
+  font-family: "Josefin Sans";
+}
+.todo-line-hr:nth-last-of-type(1) {
+  border: none;
+}
+
+.theme {
+  cursor: pointer;
+}
+
