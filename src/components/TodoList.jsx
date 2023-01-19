@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import TodoFooter from "./TodoFooter";
 import ToDoLine from "./ToDoLine";
+import config from "../config.json";
 
 const TodoList = (props) => {
-  const FILTER_ALL_KEY = "all";
-  const FILTER_ACTIVE_KEY = "active";
-  const FILTER_COMPLETED_KEY = "completed";
   const [filterMethod, setFilterMethod] = useState("all");
   const [shownList, setShownList] = useState([...props.todos]);
 
@@ -21,21 +19,21 @@ const TodoList = (props) => {
     setShownList(filteredList);
   };
   const filterOptions = {
-    [FILTER_ACTIVE_KEY]: onFilterActive,
-    [FILTER_COMPLETED_KEY]: onFilterCompleted,
-    [FILTER_ALL_KEY]: onFilterAll,
+    [config.filterByActiveKey]: onFilterActive,
+    [config.filterByCompletedKey]: onFilterCompleted,
+    [config.filterDefaultKey]: onFilterAll,
   };
   const itemsLeft = () => {
     return props.todos?.filter((todo) => !todo.isComplete)?.length || 0;
   };
   const onAllFilter = () => {
-    setFilterMethod(FILTER_ALL_KEY);
+    setFilterMethod(config.filterDefaultKey);
   };
   const onActiveFilter = () => {
-    setFilterMethod(FILTER_ACTIVE_KEY);
+    setFilterMethod(config.filterByActiveKey);
   };
   const onCompleteFilter = () => {
-    setFilterMethod(FILTER_COMPLETED_KEY);
+    setFilterMethod(config.filterByCompletedKey);
   };
   useEffect(() => {
     filterOptions[filterMethod]();

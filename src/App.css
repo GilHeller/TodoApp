@@ -8,6 +8,7 @@
   --primary-color: hsl(235, 19%, 35%);
   --secondary-color: hsl(236, 9%, 61%);
   --tertiany-color: hsl(233, 11%, 84%);
+  --active-color: hsl(213.7, 94.9%, 38.2%);
 }
 
 .app-content[theme="dark"] {
@@ -17,6 +18,7 @@
   --primary-color: hsl(236, 33%, 92%);
   --secondary-color: hsl(234, 39%, 85%);
   --tertiany-color: hsl(234, 11%, 52%);
+  --active-color: hsl(213.5, 69.4%, 51.4%);
 }
 
 .app-content {
@@ -92,6 +94,9 @@ hr {
 }
 p{
   color: var(--primary-color);
+}
+button {
+  font-family: "Josefin Sans";
 }
 .todo-line-hr:nth-last-of-type(1) {
   border: none;

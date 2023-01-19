@@ -1,18 +1,32 @@
 import React from "react";
+import config from "../config.json";
 
 const TodoFooter = (props) => {
   return (
     <div className="todo-footer-container">
       <p>{props.itemsLeft} items left</p>
-      <button className="todo-footer-button" onClick={props.onAllFilter}>
+      <hr className="todo-footer-seperator"/>
+      <p
+        className="todo-footer-button"
+        active={`${props.filterMethod === config.filterDefaultKey}`}
+        onClick={props.onAllFilter}
+      >
         All
-      </button>
-      <button className="todo-footer-button" onClick={props.onActiveFilter}>
+      </p>
+      <p
+        className="todo-footer-button"
+        active={`${props.filterMethod === config.filterByActiveKey}`}
+        onClick={props.onActiveFilter}
+      >
         Active
-      </button>
-      <button className="todo-footer-button" onClick={props.onCompleteFilter}>
+      </p>
+      <p
+        className="todo-footer-button"
+        active={`${props.filterMethod === config.filterByCompletedKey}`}
+        onClick={props.onCompleteFilter}
+      >
         Completed
-      </button>
+      </p>
     </div>
   );
 };
